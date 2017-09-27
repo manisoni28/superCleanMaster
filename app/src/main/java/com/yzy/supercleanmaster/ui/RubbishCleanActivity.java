@@ -125,10 +125,7 @@ public class RubbishCleanActivity extends BaseSwipeBackActivity implements OnDis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rublish_clean);
         getActionBar().setDisplayHomeAsUpEnabled(true);
-        //     applyKitKatTranslucency();
 
-//        StikkyHeaderBuilder.stickTo(mListView).setHeader(header)
-//                .minHeightHeaderPixel(0).build();
         res = getResources();
 
 

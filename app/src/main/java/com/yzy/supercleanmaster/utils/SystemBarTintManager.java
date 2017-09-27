@@ -1,18 +1,4 @@
-/*
- * Copyright (C) 2013 readyState Software Ltd
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+
 
 package com.yzy.supercleanmaster.utils;
 
@@ -64,6 +50,7 @@ public class SystemBarTintManager {
     /**
      * The default system bar tint color value.
      */
+    @SuppressWarnings("ResourceType")
     public static final int DEFAULT_TINT_COLOR = 0x99000000;
 
     private static String sNavBarOverride;
@@ -84,6 +71,7 @@ public class SystemBarTintManager {
      * @param activity The host activity.
      */
     @TargetApi(19)
+    @SuppressWarnings("ResourceType")
     public SystemBarTintManager(Activity activity) {
 
         Window win = activity.getWindow();

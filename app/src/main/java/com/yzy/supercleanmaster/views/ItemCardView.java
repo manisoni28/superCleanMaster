@@ -2,6 +2,7 @@ package com.yzy.supercleanmaster.views;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
@@ -26,6 +27,7 @@ public class ItemCardView extends RelativeLayout {
                 R.styleable.ItemCardView);
 
         cardName.setText(a.getString(R.styleable.ItemCardView_card_name));
+        cardName.setTextColor(Color.WHITE);
         cardImage.setImageDrawable(a.getDrawable(R.styleable.ItemCardView_card_image));
 
         a.recycle();

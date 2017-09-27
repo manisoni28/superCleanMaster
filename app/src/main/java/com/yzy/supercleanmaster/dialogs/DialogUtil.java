@@ -26,20 +26,12 @@ import com.yzy.supercleanmaster.utils.ViewUtil;
 
 public class DialogUtil {
 
-	/** dialog tag */
 	private static String mDialogTag = "dialog";
 	
 	
 	
 	
 	
-	/**
-	 * 描述：对话框dialog （图标，标题，String内容）.
-	 * @param context
-	 * @param icon
-	 * @param title 对话框标题内容
-	 *
-	 */
 	public static AlertDialogFragment showAlertDialog(Context context,int icon,String title,String message) {
 		FragmentActivity activity = (FragmentActivity)context; 
 		AlertDialogFragment newFragment = AlertDialogFragment.newInstance(icon,title,message,null,null);

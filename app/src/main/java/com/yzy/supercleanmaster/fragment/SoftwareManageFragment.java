@@ -38,7 +38,7 @@ public class SoftwareManageFragment extends BaseFragment {
     Context mContext;
     public static final int REFRESH_BT = 111;
     private static final String ARG_POSITION = "position";
-    private int position; // 0:应用软件，2 系统软件
+    private int position;
     SoftwareAdapter mAutoStartAdapter;
 
     @InjectView(R.id.listview)
@@ -113,8 +113,7 @@ public class SoftwareManageFragment extends BaseFragment {
             topText.setText("");
 
         } else {
-            topText.setText("卸载下列软件，会影响正常使用");
-
+            topText.setText("Uninstall the following software, will affect the normal use");
         }
 
 
@@ -140,9 +139,9 @@ public class SoftwareManageFragment extends BaseFragment {
                     appInfo.setUid(uid);
 
                     if ((flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
-                        appInfo.setUserApp(false);//系统应用
+                        appInfo.setUserApp(false);
                     } else {
-                        appInfo.setUserApp(true);//用户应用
+                        appInfo.setUserApp(true);
                     }
                     if ((flags & ApplicationInfo.FLAG_EXTERNAL_STORAGE) != 0) {
                         appInfo.setInRom(false);
@@ -194,8 +193,6 @@ public class SoftwareManageFragment extends BaseFragment {
                 } catch (Exception e) {
 
                 }
-
-                //    loading.setVisibility(View.VISIBLE);
                 super.onPreExecute();
             }
 

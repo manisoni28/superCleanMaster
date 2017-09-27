@@ -64,13 +64,10 @@ public class RelaxFragment extends BaseFragment {
         // TODO Auto-generated method stub
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        // 设置可以访问文件
+
         webSettings.setAllowFileAccess(true);
-        // 设置可以支持缩放
         webSettings.setSupportZoom(true);
-        // 设置默认缩放方式尺寸是far
         webSettings.setDefaultZoom(WebSettings.ZoomDensity.MEDIUM);
-        // 设置出现缩放工具
         webSettings.setBuiltInZoomControls(false);
         webSettings.setDefaultFontSize(20);
 

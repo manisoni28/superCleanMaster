@@ -101,9 +101,7 @@ public class CoreService extends Service {
 
                     @Override
                     public void onScanCompleted(Context context, List<AppProcessInfo> apps) {
-                        //   if (getCacheSize() > 0) {
-                        //     cleanCache();
-                        // }
+
                     }
 
                     @Override
@@ -178,10 +176,6 @@ public class CoreService extends Service {
                     abAppProcessInfo.icon = icon;
                     abAppProcessInfo.appName = appName;
                 } catch (PackageManager.NameNotFoundException e) {
-                    //   e.printStackTrace();
-
-                    // :服务的命名
-
                     if (appProcessInfo.processName.indexOf(":") != -1) {
                         appInfo = getApplicationInfo(appProcessInfo.processName.split(":")[0]);
                         if (appInfo != null) {
@@ -227,14 +221,13 @@ public class CoreService extends Service {
     }
 
     public void scanRunProcess() {
-        // mIsScanning = true;
+
 
         new TaskScan().execute();
     }
 
 
     public void killBackgroundProcesses(String processName) {
-        // mIsScanning = true;
 
         String packageName = null;
         try {
@@ -298,16 +291,15 @@ public class CoreService extends Service {
 
 
     public long getAvailMemory(Context context) {
-        // 获取android当前可用内存大小
+
         ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
         activityManager.getMemoryInfo(memoryInfo);
-        // 当前系统可用内存 ,将获得的内存大小规格化
+
 
         return memoryInfo.availMem;
     }
 
     public void cleanAllProcess() {
-        //  mIsCleaning = true;
 
         new TaskClean().execute();
     }

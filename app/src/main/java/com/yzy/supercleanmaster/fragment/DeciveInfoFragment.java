@@ -64,33 +64,23 @@ public class DeciveInfoFragment extends BaseFragment {
         // TODO Auto-generated method stub
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        // 设置可以访问文件
+
         webSettings.setAllowFileAccess(true);
-        // 设置可以支持缩放
         webSettings.setSupportZoom(true);
-        // 设置默认缩放方式尺寸是far
         webSettings.setDefaultZoom(WebSettings.ZoomDensity.MEDIUM);
-        // 设置出现缩放工具
         webSettings.setBuiltInZoomControls(false);
         webSettings.setDefaultFontSize(20);
 
-        // 访问assets目录下的文件
 
         mWebView.loadUrl("http://girl-atlas.com");
 
-        // 设置WebViewClient
         mWebView.setWebViewClient(new WebViewClient() {
-            // url拦截
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                // 使用自己的WebView组件来响应Url加载事件，而不是使用默认浏览器器加载页面
                 view.loadUrl(url);
-                // 相应完成返回true
                 return true;
-                // return super.shouldOverrideUrlLoading(view, url);
             }
 
-            // 页面开始加载
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 mProgressBar.setVisibility(View.VISIBLE);

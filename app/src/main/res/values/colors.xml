@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <item name="green" type="color">#FF3BBD79</item>
+    <item name="green" type="color">#40C888</item>
     <item name="gray" type="color">#FF323A45</item>
-    <item name="gray_drawable" type="drawable">#FF2c5aa9</item>
-    <item name="title_bg" type="color" >#FF2c5aa9</item>
-    <item name="blue" type="color" >#1d83ce</item>
+    <item name="gray_drawable" type="drawable">#40C888</item>
+    <item name="title_bg" type="color" >#40C888</item>
+    <item name="blue" type="color" >#40C888</item>
 
     <drawable name="transparent">#00000000</drawable>
     <color name="white">#FFFFFF</color>
@@ -25,15 +25,15 @@
 
     <color name="red_500">#F44336</color>
     <color name="red_200">#EF9A9A</color>
-    <color name="blue_500">#2196F3</color>
+    <color name="blue_500">#40C888</color>
     <color name="blue_200">#90CAF9</color>
 
     <color name="background_tab_pressed">#ffffff</color>
-    <color name="green_6a">#FF2c5aa9</color>
+    <color name="green_6a">#40C888</color>
 
     <color name="gplus_color_1">#3e802f</color>
     <color name="gplus_color_2">#f4b400</color>
-    <color name="gplus_color_3">#427fed</color>
+    <color name="gplus_color_3">#40C888</color>
     <color name="gplus_color_4">#b23424</color>
     <integer-array name="gplus_colors">
         <item>@color/gplus_color_1</item>
@@ -41,5 +41,9 @@
         <item>@color/gplus_color_3</item>
         <item>@color/gplus_color_4</item>
     </integer-array>
+    <color name="primary">#40C888</color>
+    <color name="primary_dark">#3eb489</color>
+    <color name="accent">#2a7b5e</color>
 
+    <color name="level2_item_background">#FCFCFC</color>
 </resources>

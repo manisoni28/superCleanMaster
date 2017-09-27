@@ -72,8 +72,8 @@ public class MainActivity extends BaseActivity implements NavigationDrawerFragme
     private void initDrawer() {
         // TODO Auto-generated method stub
         ab = getActionBar();
-        ab.setDisplayHomeAsUpEnabled(true);// 给home icon的左边加上一个返回的图标
-        ab.setHomeButtonEnabled(true);// 需要api level 14 使用home-icon 可点击
+        ab.setDisplayHomeAsUpEnabled(true);
+        ab.setHomeButtonEnabled(true);
 
         drawerArrow = new DrawerArrowDrawable(this) {
             @Override
@@ -96,24 +96,12 @@ public class MainActivity extends BaseActivity implements NavigationDrawerFragme
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
-//        mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
-//                mDrawerLayout);
 
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.main, menu);
-//        return true;
-//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-
         if (item.getItemId() == android.R.id.home) {
             if (mDrawerLayout.isDrawerOpen(mFragmentContainerView)) {
                 mDrawerLayout.closeDrawer(mFragmentContainerView);
@@ -151,8 +139,6 @@ public class MainActivity extends BaseActivity implements NavigationDrawerFragme
             SystemBarTintManager mTintManager = new SystemBarTintManager(this);
             mTintManager.setStatusBarTintEnabled(true);
             mTintManager.setNavigationBarTintEnabled(true);
-            // mTintManager.setTintColor(0xF00099CC);
-
             mTintManager.setTintDrawable(UIElementsHelper
                     .getGeneralActionBarBackground(this));
 
@@ -178,9 +164,7 @@ public class MainActivity extends BaseActivity implements NavigationDrawerFragme
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
-        // 开启一个Fragment事务
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        // 先隐藏掉所有的Fragment，以防止有多个Fragment显示在界面上的情况
         hideFragments(transaction);
 
         switch (position) {
@@ -212,8 +196,6 @@ public class MainActivity extends BaseActivity implements NavigationDrawerFragme
                 SettingsFragment.launch(MainActivity.this);
                 break;
 
-            // fragment = new SettingsFragment();
-            // break;
         }
 
 
@@ -236,19 +218,17 @@ public class MainActivity extends BaseActivity implements NavigationDrawerFragme
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        // 截获后退键
+
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             long currentTime = new Date().getTime();
 
-            // 如果时间间隔大于2秒, 不处理
-            if ((currentTime - preTime) > TWO_SECOND) {
-                // 显示消息
-                T.showShort(mContext, "再按一次退出应用程序");
 
-                // 更新时间
+            if ((currentTime - preTime) > TWO_SECOND) {
+                T.showShort(mContext, "Press again to exit the application");
+
+
                 preTime = currentTime;
 
-                // 截获事件,不再处理
                 return true;
             } else {
                 ActivityTack.getInstanse().exit(mContext);

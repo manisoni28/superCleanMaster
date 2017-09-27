@@ -211,16 +211,6 @@ public class MemoryCleanActivity extends BaseSwipeBackActivity implements OnDism
             header.setVisibility(View.GONE);
             bottom_lin.setVisibility(View.GONE);
         }
-//        mClearMemoryAdapter = new ClearMemoryAdapter(mContext,
-//                apps);  mClearMemoryAdapter = new ClearMemoryAdapter(mContext,
-//                apps);
-//        swingBottomInAnimationAdapter = new SwingBottomInAnimationAdapter(new SwipeDismissAdapter(mClearMemoryAdapter, MemoryCleanActivity.this));
-//        swingBottomInAnimationAdapter.setAbsListView(mListView);
-//        assert swingBottomInAnimationAdapter.getViewAnimator() != null;
-//        swingBottomInAnimationAdapter.getViewAnimator().setInitialDelayMillis(INITIAL_DELAY_MILLIS);
-//
-//        mListView.setAdapter(swingBottomInAnimationAdapter);
-        //clearMem.setText("200M");
 
 
     }
@@ -231,7 +221,6 @@ public class MemoryCleanActivity extends BaseSwipeBackActivity implements OnDism
         textCounter.setStartValue(0f);
         textCounter.setEndValue(mStorageSize.value);
         sufix.setText(mStorageSize.suffix);
-        //  textCounter.setSuffix(mStorageSize.suffix);
         textCounter.start();
     }
 
@@ -260,7 +249,7 @@ public class MemoryCleanActivity extends BaseSwipeBackActivity implements OnDism
             }
         }
         Allmemory = Allmemory - killAppmemory;
-        T.showLong(mContext, "共清理" + StorageUtil.convertStorage(killAppmemory) + "内存");
+        T.showLong(mContext, "Clean up" + StorageUtil.convertStorage(killAppmemory) + "RAM");
         if (Allmemory > 0) {
             refeshTextCounter();
         }

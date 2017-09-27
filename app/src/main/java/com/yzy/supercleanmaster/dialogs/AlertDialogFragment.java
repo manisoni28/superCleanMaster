@@ -66,7 +66,7 @@ public class AlertDialogFragment extends DialogFragment {
 		}
 		
 		if(mOnClickListener != null){
-			builder.setPositiveButton("确认",
+			builder.setPositiveButton("confirm",
 	            new DialogInterface.OnClickListener() {
 	                public void onClick(DialogInterface dialog, int whichButton) {
 	                	if(mOnClickListener != null){
@@ -75,7 +75,7 @@ public class AlertDialogFragment extends DialogFragment {
 	                }
 	            }
 		     );
-		     builder.setNegativeButton("取消",
+		     builder.setNegativeButton("cancel",
 	            new DialogInterface.OnClickListener() {
 	                public void onClick(DialogInterface dialog, int whichButton) {
 	                	if(mOnClickListener != null){

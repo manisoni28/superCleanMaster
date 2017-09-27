@@ -53,7 +53,7 @@
                     android:layout_width="wrap_content"
 
                     android:textColor="@color/white"
-                    android:text="可清理"
+                    android:text="Can be cleaned up"
                     android:textSize="@dimen/text_size_middle"
                     android:layout_height="wrap_content" />
 
@@ -104,7 +104,7 @@
                 android:textSize="@dimen/text_size_large"
                 android:layout_width="match_parent"
                 android:gravity="center"
-                android:text="一键清理"
+                android:text="A key to clean up"
                 android:layout_height="wrap_content" />
         </LinearLayout>
 

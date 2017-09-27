@@ -19,14 +19,11 @@ import java.util.Random;
 
 public class SplishActivity extends BaseActivity {
 
-    /**
-     * 三个切换的动画
-     */
     private Animation mFadeIn;
     private Animation mFadeInScale;
     private Animation mFadeOut;
 
-    //  @InjectView(R.id.image)
+
     ImageView mImageView;
 
     public static final String ACTION_INSTALL_SHORTCUT = "com.android.launcher.action.INSTALL_SHORTCUT";
@@ -58,7 +55,7 @@ public class SplishActivity extends BaseActivity {
         // TODO Auto-generated method stub
         Intent intent = new Intent();
         intent.setAction("com.android.launcher.action.INSTALL_SHORTCUT");
-        intent.putExtra(Intent.EXTRA_SHORTCUT_NAME, "一键加速");
+        intent.putExtra(Intent.EXTRA_SHORTCUT_NAME, "One key to speed up");
         intent.putExtra("duplicate", false);
         intent.putExtra(Intent.EXTRA_SHORTCUT_ICON, BitmapFactory.decodeResource(getResources(), R.drawable.short_cut_icon));
         Intent i = new Intent();
@@ -81,14 +78,7 @@ public class SplishActivity extends BaseActivity {
     }
 
 
-    /**
-     * 监听事件
-     */
     public void setListener() {
-        /**
-         * 动画切换原理:开始时是用第一个渐现动画,当第一个动画结束时开始第二个放大动画,当第二个动画结束时调用第三个渐隐动画,
-         * 第三个动画结束时修改显示的内容并且重新调用第一个动画,从而达到循环效果
-         */
         mFadeIn.setAnimationListener(new AnimationListener() {
 
             public void onAnimationStart(Animation animation) {
@@ -116,7 +106,6 @@ public class SplishActivity extends BaseActivity {
             public void onAnimationEnd(Animation animation) {
                 startActivity(MainActivity.class);
                 finish();
-                // mImageView.startAnimation(mFadeOut);
             }
         });
         mFadeOut.setAnimationListener(new AnimationListener() {
@@ -130,7 +119,6 @@ public class SplishActivity extends BaseActivity {
             }
 
             public void onAnimationEnd(Animation animation) {
-                // startActivity(MainActivity.class);
             }
         });
     }

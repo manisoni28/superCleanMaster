@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f8ffffff"
-    tools:context=".NavigationDrawerFragment_">
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -45,7 +45,7 @@
                     android:paddingEnd="0dp"
                     android:paddingLeft="17dp"
                     android:paddingRight="0dp"
-                    android:text="首页"
+                    android:text="Home"
                     android:textColor="@drawable/drawer_selector_font"
                     android:textSize="17sp" />
             </RelativeLayout>
@@ -61,7 +61,7 @@
                 android:gravity="center_vertical|left"
                 android:paddingLeft="17dp"
                 android:paddingRight="0dp"
-                android:text="轻松一下"
+                android:text="Relax"
                 android:textColor="@drawable/drawer_selector_font"
                 android:textSize="17sp" />
 
@@ -76,7 +76,7 @@
                 android:gravity="center_vertical|left"
                 android:paddingLeft="17dp"
                 android:paddingRight="0dp"
-                android:text="设置"
+                android:text="Set up"
                 android:textColor="@drawable/drawer_selector_font"
                 android:textSize="17sp" />
 

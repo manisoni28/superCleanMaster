@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.yzy.supercleanmaster">
-
     <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
@@ -19,6 +18,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+
     <supports-screens
         android:anyDensity="true"
         android:largeScreens="true"
@@ -37,11 +37,7 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/TranslateThemeFull">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:screenOrientation="portrait"
@@ -107,9 +103,6 @@
             </intent-filter>
         </receiver>
 
-          <!--
-          友盟
-          -->
 
         <meta-data android:value="54d9a36afd98c56d450008ab" android:name="UMENG_APPKEY"></meta-data>
         <meta-data android:value="Channel ID" android:name="UMENG_CHANNEL"/>
@@ -123,9 +116,6 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" >
         </activity>
 
-        <!--
-                 友盟分享
-                 -->
         <activity
             android:name="com.umeng.socialize.view.ShareActivity"
             android:configChanges="orientation|keyboard"
@@ -137,8 +127,6 @@
 
 
 
-        <!-- ############ QQ空间和QQ SSO授权的Activity注册 ############ -->
-
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
@@ -148,7 +136,6 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <!-- 100424468，如果你使用的公用账号，则不需要修改；否则修改成你在QQ开放平台申请的 APP ID-->
                 <data android:scheme="tencent100424468" />
             </intent-filter>
         </activity>
@@ -156,6 +143,20 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:screenOrientation="portrait">
         </activity>
+        <activity
+            android:name=".cleanexpert.ui.MainCleanActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".cleanexpert.ui.JunkCleanActivity"
+            android:label="@string/title_activity_junk_clean"
+            android:theme="@style/AppTheme.NoActionBar" />
 
     </application>
 

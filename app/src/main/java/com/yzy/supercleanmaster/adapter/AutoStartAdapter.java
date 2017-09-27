@@ -78,13 +78,11 @@ public class AutoStartAdapter extends BaseAdapter {
             holder.appName.setText(item.getLabel());
             if (item.isEnable()) {
                 holder.disable_switch.setBackgroundResource(R.drawable.switch_on);
-                holder.disable_switch.setText("已开启");
+                holder.disable_switch.setText("Turned on");
             } else {
                 holder.disable_switch.setBackgroundResource(R.drawable.switch_off);
-                holder.disable_switch.setText("已禁止");
+                holder.disable_switch.setText("Has been banned");
             }
-            // holder.size.setText(Formatter.formatShortFileSize(mContext, item.getCacheSize()));
-
             holder.disable_switch.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -103,7 +101,7 @@ public class AutoStartAdapter extends BaseAdapter {
 
                     } else {
 
-                        T.showLong(mContext, "该功能需要获取系统root权限，点击允许获取root权限");
+                        T.showLong(mContext, "This function needs to get the system root privileges, click to allow access to root privileges");
 
                     }
 
@@ -122,26 +120,22 @@ public class AutoStartAdapter extends BaseAdapter {
         List<String> mSring = new ArrayList<>();
         for (int j = 0; j < packageReceiverList.length; j++) {
             String cmd = "pm disable " + packageReceiverList[j];
-            //部分receiver包含$符号，需要做进一步处理，用"$"替换掉$
             cmd = cmd.replace("$", "\"" + "$" + "\"");
-            //执行命令
             mSring.add(cmd);
 
         }
         ShellUtils.CommandResult mCommandResult = ShellUtils.execCommand(mSring, true, true);
 
         if (mCommandResult.result == 0) {
-            T.showLong(mContext, item.getLabel() + "已禁止");
+            T.showLong(mContext, item.getLabel() + "Has been banned");
             item.setEnable(false);
             notifyDataSetChanged();
             if (mHandler != null) {
                 mHandler.sendEmptyMessage(AutoStartFragment.REFRESH_BT);
             }
         } else {
-            T.showLong(mContext, item.getLabel() + "禁止失败");
+            T.showLong(mContext, item.getLabel() + "Forbid failure");
         }
-
-        // T.showLong(mContext, mCommandResult.result + "" + mCommandResult.errorMsg + mCommandResult.successMsg);
     }
 
     private void enableApp(AutoStartInfo item) {
@@ -150,25 +144,22 @@ public class AutoStartAdapter extends BaseAdapter {
         List<String> mSring = new ArrayList<>();
         for (int j = 0; j < packageReceiverList.length; j++) {
             String cmd = "pm enable " + packageReceiverList[j];
-            //部分receiver包含$符号，需要做进一步处理，用"$"替换掉$
             cmd = cmd.replace("$", "\"" + "$" + "\"");
-            //执行命令
             mSring.add(cmd);
 
         }
         ShellUtils.CommandResult mCommandResult = ShellUtils.execCommand(mSring, true, true);
 
         if (mCommandResult.result == 0) {
-            T.showLong(mContext, item.getLabel() + "已开启");
+            T.showLong(mContext, item.getLabel() + "Turned on");
             item.setEnable(true);
             notifyDataSetChanged();
             if (mHandler != null) {
                 mHandler.sendEmptyMessage(AutoStartFragment.REFRESH_BT);
             }
         } else {
-            T.showLong(mContext, item.getLabel() + "开启失败");
+            T.showLong(mContext, item.getLabel() + "Open failed");
         }
-        //   T.showLong(mContext, mCommandResult.result + "" + mCommandResult.errorMsg + mCommandResult.successMsg);
     }
 
     class ViewHolder {

@@ -57,7 +57,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         pVersion = findPreference("pVersion");
         pVersion.setOnPreferenceClickListener(this);
         pVersionDetail = findPreference("pVersionDetail");
-        pVersionDetail.setSummary("当前版本：" + AppUtil.getVersion(getActivity()));
+        pVersionDetail.setSummary("current version：" + AppUtil.getVersion(getActivity()));
         pVersionDetail.setOnPreferenceClickListener(this);
 
         pGithub = findPreference("pGithub");
@@ -82,7 +82,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 @Override
                 public void onUpdateReturned(int i, UpdateResponse updateResponse) {
                     if (i != 0) {
-                        T.showLong(getActivity(), "当前版本为最新版本！");
+                        T.showLong(getActivity(), "Current version is the latest version!");
                     }
 
                 }
@@ -105,7 +105,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
     private void shareMyApp() {
 
         UMSocialService mController = UMServiceFactory.getUMSocialService("com.umeng.share", RequestType.SOCIAL);
-        mController.setShareContent("一键清理（开源版）一键清理手机进程，真心不错呀,推荐您使用！.");
+        mController.setShareContent("A key to clean up (open source version) a key to clean up the phone process, really good ah, recommend you use!");
         mController.openShare(getActivity(), false);
 
     }
@@ -113,10 +113,9 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
     private void initData() {
         String appID = "wxa263da737a20300e";
         String appSecret = "381a2fab6466410c674afaa40c77c953";
-// 添加微信平台
         UMWXHandler wxHandler = new UMWXHandler(getActivity(),appID,appSecret);
         wxHandler.addToSocialSDK();
-// 添加微信朋友圈
+
         UMWXHandler wxCircleHandler = new UMWXHandler(getActivity(),appID,appSecret);
         wxCircleHandler.setToCircle(true);
         wxCircleHandler.addToSocialSDK();
@@ -130,7 +129,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         // TODO Auto-generated method stub
         Intent intent = new Intent();
         intent.setAction("com.android.launcher.action.INSTALL_SHORTCUT");
-        intent.putExtra(Intent.EXTRA_SHORTCUT_NAME, "一键加速");
+        intent.putExtra(Intent.EXTRA_SHORTCUT_NAME, "One key to speed up");
         intent.putExtra("duplicate", false);
         intent.putExtra(Intent.EXTRA_SHORTCUT_ICON, BitmapFactory.decodeResource(getResources(), R.drawable.short_cut_icon));
         Intent i = new Intent();
@@ -138,7 +137,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         i.addCategory("android.intent.category.DEFAULT");
         intent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, i);
         getActivity().sendBroadcast(intent);
-        T.showLong(getActivity(), "“一键加速”快捷图标已创建");
+        T.showLong(getActivity(), "\"OneKey Accelerated\" shortcut icon created");
 
     }
 
@@ -150,10 +149,8 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             getActivity().startActivity(intent);
         }
-        // 没有安装市场
         else {
-            T.showLong(getActivity(),"无法打开应用市场");
-
+            T.showLong(getActivity(),"Can not open application market");
         }
     }
 }
